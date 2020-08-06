@@ -11,7 +11,7 @@
 // 	}
 // }
 
-//Declarative
+//Declarative Style of setting up pipeline
 
 pipeline {
 	agent any
@@ -30,6 +30,16 @@ pipeline {
 			steps {
 				echo "Integration Test"
 			}
+		}
+	} post {
+		always {
+			echo 'Im awesome. I run always'
+		}
+		success {
+			echo 'I run when successful'
+		}
+		failure {
+			echo 'I run when there is failure'
 		}
 	}
 	
