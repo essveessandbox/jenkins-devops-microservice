@@ -22,6 +22,11 @@ pipeline {
 		path = "$dockerHome:/bin:$mavenHome/bin:$PATH"
 	}
 	stages 	{
+		stage('Permissions') {
+            steps {
+                sh 'chmod 775 *'
+            }
+		}
 		stage('Build'){
 			steps {
 				sh 'mvn --version'
