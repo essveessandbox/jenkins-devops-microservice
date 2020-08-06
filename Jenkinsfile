@@ -15,7 +15,12 @@
 
 pipeline {
 	// agent any
-	agent {	docker {image 'maven:3.6.3'}}
+	agent {	
+		docker {
+			image 'maven:3.6.3'
+			registryUrl 'https://registry.hub.docker.com'
+			}
+		}
 	stages 	{
 		stage('Build'){
 			steps {
